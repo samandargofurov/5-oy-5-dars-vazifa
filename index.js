@@ -212,7 +212,7 @@ btn2 && btn2.addEventListener('click', function (e) {
     `;
   }
 
-  createCard(user).clear();
+  createCard.innerHTML = '';
 
 })
 
