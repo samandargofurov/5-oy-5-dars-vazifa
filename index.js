@@ -174,8 +174,10 @@ btn && btn.addEventListener("click", function (e) {
       let u = getData();
       u.push(user);
       localStorage.setItem("users", JSON.stringify(u));
-
       form.reset();
+
+      let card = createCard(user);
+      wrapper.innerHTML += card;
     } else {
       alert("Xatolik yuzaga keldi, qaytadan urinib ko'ring");
     }
