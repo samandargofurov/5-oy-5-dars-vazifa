@@ -237,4 +237,4 @@ document.addEventListener('DOMContentLoaded', function () {
     let card = createCard(user);
     wrapper.innerHTML += card;
   });
-})
+});
