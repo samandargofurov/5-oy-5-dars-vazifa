@@ -195,7 +195,7 @@ btn2 && btn2.addEventListener('click', function (e) {
     desc: desc.value
   };
 
-  localStorage.clear(user);
+  localStorage.clear();
 
   function createCard(user) {
     return `
@@ -214,7 +214,7 @@ btn2 && btn2.addEventListener('click', function (e) {
 
   createCard.innerHTML = '';
 
-})
+});
 
 function createCard(user) {
   return `
