@@ -11,7 +11,7 @@ const btn = document.querySelector("#btn");
 const btn2 = document.querySelector("#btn2");
 const wrapper = document.querySelector("#wrapper");
 
-function validate(name, surname, age, phoneNumber, email, password, nat, desc, btn2) {
+function validate(name, surname, age, phoneNumber, email, password, nat, desc) {
   // Tekshiruv: Name
   if (!name.value) {
     alert("Ism kiritilishi shart");
@@ -158,7 +158,7 @@ function getData() {
 btn && btn.addEventListener("click", function (e) {
     e.preventDefault();
 
-    if (validate(name, surname, age, phoneNumber, email, password, nat, desc, btn2)) {
+    if (validate(name, surname, age, phoneNumber, email, password, nat, desc)) {
       const user = {
         name: name.value,
         surname: surname.value,
@@ -167,8 +167,7 @@ btn && btn.addEventListener("click", function (e) {
         email: email.value,
         password: password.value,
         nat: nat.value,
-        desc: desc.value,
-        btn2: btn2.value
+        desc: desc.value
       };
 
       let u = getData();
@@ -183,6 +182,40 @@ btn && btn.addEventListener("click", function (e) {
     }
   });
 
+btn2 && btn2.addEventListener('click', function (e) {
+  e.preventDefault();
+  const user = {
+    name: name.value,
+    surname: surname.value,
+    age: age.value,
+    phoneNumber: phoneNumber.value,
+    email: email.value,
+    password: password.value,
+    nat: nat.value,
+    desc: desc.value
+  };
+
+  localStorage.clear(user);
+
+  function createCard(user) {
+    return `
+    <div class="card">
+        <h3>${user.name}</h3>
+        <h3>${user.surname}</h3>
+        <h3>${user.age}</h3>
+        <h3>${user.phoneNumber}</h3>
+        <h3>${user.email}</h3>
+        <h3>${user.password}</h3>
+        <h3>${user.nat}</h3>
+        <h3>${user.desc}</h3>
+    </div>
+    `;
+  }
+
+  createCard(user).clear();
+
+})
+
 function createCard(user) {
   return `
   <div class="card">
@@ -194,7 +227,6 @@ function createCard(user) {
       <h3>${user.password}</h3>
       <h3>${user.nat}</h3>
       <h3>${user.desc}</h3>
-      <h3>${user.btn2}</h3>
   </div>
   `;
 }
